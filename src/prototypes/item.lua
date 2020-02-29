@@ -1,40 +1,16 @@
-local fireArmor = table.deepcopy(data.raw.armor["heavy-armor"])
-
-fireArmor.name = "fire-armor"
-fireArmor.icons= {
+local electricRailPlanner = table.deepcopy(data.raw["rail-planner"]["rail"])
+electricRailPlanner.name = "electric-rail"
+electricRailPlanner.icons= {
    {
-      icon=fireArmor.icon,
-      tint={r=1,g=0,b=0,a=0.3}
-   },
+      icon=electricRailPlanner.icon,
+      tint={r=0,g=0,b=1,a=0.3}
+   }
 }
 
-fireArmor.resistances = {
-   {
-      type = "physical",
-      decrease = 6,
-      percent = 10
-   },
-   {
-      type = "explosion",
-      decrease = 10,
-      percent = 30
-   },
-   {
-      type = "acid",
-      decrease = 5,
-      percent = 30
-   },
-   {
-      type = "fire",
-      decrease = 0,
-      percent = 100
-   },
-}
-
-local recipe = table.deepcopy(data.raw.recipe["heavy-armor"])
+local recipe = table.deepcopy(data.raw.recipe["rail"])
 recipe.enabled = true
-recipe.name = "fire-armor"
-recipe.ingredients = {{"copper-plate",200},{"steel-plate",50}}
-recipe.result = "fire-armor"
+recipe.name = "electric-rail"
+recipe.ingredients = {{"copper-plate",1}}
+recipe.result = "electric-rail"
 
-data:extend{fireArmor,recipe}
+data:extend{electricRailPlanner,recipe}
